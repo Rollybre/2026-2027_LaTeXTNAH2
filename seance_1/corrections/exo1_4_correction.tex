@@ -1,0 +1,22 @@
+\documentclass[12pt]{article}
+%L'option 25pt n'existe pas : seules 10pt, 11pt et 12pt sont définies par la classe article.
+%La compilation n'échoue pas, mais le .log signale « Unused global option(s): [25pt] ».
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{bbding}%Le package est chargé dans le préambule. Documentation : texdoc bbding
+
+\begin{document}
+
+% Charger un package -- lire sa documentation.
+
+% Essayons de faire apparaître un symbole de main avec la commande \HandRight définie dans le package bbding
+
+Voici une main : \HandRight
+
+%Sans \usepackage{bbding}, la compilation s'arrête sur « Undefined control sequence » : la commande \HandRight n'est pas connue.
+%La documentation liste les autres symboles disponibles, par exemple :
+\HandLeft{} \PencilRight{} \Checkmark
+
+\end{document}

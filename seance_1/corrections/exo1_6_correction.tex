@@ -1,0 +1,25 @@
+\documentclass[]{article}
+%L'environnement abstract n'existe pas dans la classe book : la compilation s'arrête sur
+%« LaTeX Error: Environment abstract undefined ». Il faut passer à la classe article.
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{lipsum}
+\title{Un article}
+\author{écrit en \LaTeX}
+
+\begin{document}
+\maketitle%une commande : \nom, éventuellement suivie d'arguments
+%Distinguer commandes et  environnements
+
+
+%Mettez ici un résumé d'article comportant deux paragraphes
+\begin{abstract}%un environnement : il s'ouvre avec \begin{nom} et se ferme avec \end{nom}
+	Ceci est le premier paragraphe du résumé.
+
+	Ceci est le second paragraphe : un environnement peut contenir des sauts de paragraphe (une ligne blanche).
+\end{abstract}
+
+	\lipsum[1-3]
+\end{document}

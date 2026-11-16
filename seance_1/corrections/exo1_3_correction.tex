@@ -1,0 +1,20 @@
+\documentclass[12pt, oneside, twocolumn]{book}
+%Les options se placent entre crochets, séparées par des virgules. À essayer une à une :
+%  10pt, 11pt, 12pt      taille de base du texte (10pt par défaut)
+%  oneside / twoside     recto seul / recto-verso : en twoside (défaut de la classe book),
+%                        les marges et les en-têtes diffèrent entre pages paires et impaires
+%  onecolumn / twocolumn texte sur une ou deux colonnes
+%  titlepage / notitlepage  page de titre séparée ou non
+%La page de titre est séparée par défaut dans la classe book (et report), pas dans la classe article.
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{lipsum}
+
+\begin{document}
+
+%Modifions la mise en page en jouant sur les options de la classe
+
+\lipsum
+\end{document}

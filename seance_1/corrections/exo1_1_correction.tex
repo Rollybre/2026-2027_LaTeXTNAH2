@@ -1,0 +1,19 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+
+\begin{document}
+%Le corps du document doit contenir du texte : sans texte, aucune page n'est produite (et donc pas de PDF).
+Bonjour, ceci est mon premier document écrit en \LaTeX.
+
+\end{document}
+
+%Compilation : xelatex exo1_1_correction.tex
+%Fichiers apparus à côté du .tex :
+%  .pdf         le document produit
+%  .log         le journal de compilation : c'est lui qu'il faut lire en cas d'erreur
+%  .aux         informations gardées d'une compilation à l'autre (renvois, table des matières, etc.)
+%  .synctex.gz  (selon l'éditeur) lien entre le PDF et le code source
+%Seul le .tex est indispensable : tous les autres peuvent être supprimés, ils seront recréés à la compilation suivante.

@@ -1,0 +1,45 @@
+\documentclass[]{book}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{lipsum}
+%Titre, auteur et date se déclarent dans le préambule...
+\title{Structurer son document}
+\author{Prénom Nom}
+\date{4 novembre 2026}
+
+\begin{document}
+%Comment structurer son document
+
+%faire apparaître le titre 
+\maketitle%... et s'impriment dans le corps du document avec \maketitle
+
+%Mettre un titre de chapitre ici
+\chapter{Un chapitre}%\chapter n'existe que dans la classe book (et report)
+
+%Mettre un titre de section
+\section{Une section}
+
+\lipsum[1-2]
+%Mettre un titre de sous-section
+\subsection{Une sous-section}
+
+\lipsum[3-4]
+%Section
+\section{Une autre section}
+
+%sous-section
+\subsection{Une autre sous-section}
+
+%sous-sous-section
+\subsubsection{Une sous-sous-section}%non numérotée et absente de la table des matières dans la classe book
+
+\lipsum[5-6]
+
+%Imprimer la table des matières
+\tableofcontents
+%Il faut compiler deux fois : à la première compilation, les titres sont écrits dans le fichier .toc ;
+%à la seconde, \tableofcontents lit ce fichier et imprime la table.
+
+\end{document}

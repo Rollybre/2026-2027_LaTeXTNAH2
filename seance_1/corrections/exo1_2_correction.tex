@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+%Avec polyglossia et le français, une espace fine est ajoutée automatiquement devant « ! » et « ; ».
+%Mettez les deux lignes ci-dessus en commentaire et recompilez pour voir la différence.
+
+\begin{document}
+
+	Ceci est un exemple de ligne qui se termine avec une césure automatiquement placée.
+	Insérez      des     espaces    où vous    voulez
+	entre
+	les mots.
+	%Plusieurs espaces à la suite, ou un simple retour à la ligne, comptent pour une seule espace : le rendu ne change pas.
+
+	%Une ligne blanche (ci-dessus) crée un nouveau paragraphe.
+	Essayez de faire un paragraphe au début de cette phrase. Mettez un espace~insécable après le mot "espace", et observez la ponctuation: ici! et là; ou là.
+	%Le tilde ~ est une espace insécable : « espace » et « insécable » ne seront jamais séparés par un saut de ligne.
+
+	Voici différents tirets: tiret simple (-) pour les mots composés; demi-cadratin (--) pour les plages de nombre; cadratin (---) pour les incises.
+
+	Un sous-titre s'écrit avec un tiret simple, les pages 12--15 avec un demi-cadratin.
+
+
+
+	Utilisez des cadratins à la place des parenthèses --- c'est plus élégant --- dans votre mémoire.
+	%Plusieurs lignes blanches à la suite ne créent qu'un seul saut de paragraphe.
+
+	%Cet exercice sert à montrer comment taper du texte
+	%Ceci est un commentaire: apparaît-il?
+	%Non : tout ce qui suit un % est ignoré à la compilation.
+
+\end{document}
