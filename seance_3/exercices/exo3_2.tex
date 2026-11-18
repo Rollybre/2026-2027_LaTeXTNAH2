@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+\usepackage{lipsum}
+
+\usepackage{graphicx}% insérer des images
+\usepackage{lscape}% mettre en format paysage
+\usepackage{hyperref}% écrire une adresse web : \url{...}
+
+% Fichier nécessaire : genealogie.jpg (dans le même dossier que ce fichier)
+
+% 1. Insérez l'image genealogie.jpg à l'endroit indiqué, grâce à \includegraphics. Compilez : que se passe-t-il ?
+% 2. Réglez la taille de l'image (scale=, ou width=) pour qu'elle tienne dans la page.
+% 3. Transformez l'image en flottant avec l'environnement figure, et choisissez son placement (h, t, b, p).
+%    Changez le placement et observez où l'image se déplace par rapport au texte.
+% 4. Ajoutez une légende (\caption), avec la source de l'image : https://books.openedition.org/efr/2282
+% 5. Retirez le réglage de taille et mettez l'image en format paysage (environnement landscape).
+% 6. À l'endroit indiqué, placez deux fois l'image côte à côte, dans un seul flottant figure :
+%    une subfigure par image, chacune avec sa légende, puis une légende commune (package subcaption).
+%    Essayez ensuite d'ajouter une ligne blanche entre les deux subfigure : que se passe-t-il ?
+% 7. À la fin du document, insérez la liste des figures.
+
+\begin{document}
+
+\section{Insérer une image}
+
+\lipsum[1]
+
+% Insérez l'image ici
+
+
+
+\lipsum[2]
+
+% Images côte à côte ici
+
+
+
+\lipsum[3]
+
+% Insérez la liste des figures ici
+
+
+\end{document}

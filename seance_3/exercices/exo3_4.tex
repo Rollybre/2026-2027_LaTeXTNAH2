@@ -1,0 +1,29 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{tikz}% faire des schémas
+
+% Comprendre la syntaxe de TikZ : l'exemple du stemma codicum
+
+% 1. Compilez et observez le stemma : A a deux enfants, B et C.
+% 2. Ajoutez un troisième enfant à A, appelé D.
+% 3. Ajoutez un enfant E à D.
+%    Faites bien attention aux accolades, et indentez le code pour y voir plus clair.
+%    L'instruction se termine par un seul point-virgule, tout à la fin.
+% 4. Mettez le tout dans un flottant (figure), indiquez un paramètre de placement et ajoutez une légende.
+
+\begin{document}
+
+\section{Un \emph{stemma codicum}}
+
+\begin{tikzpicture}
+	\node {A}
+		child {node {B}}
+		child {node {C}}
+	;
+\end{tikzpicture}
+
+\end{document}

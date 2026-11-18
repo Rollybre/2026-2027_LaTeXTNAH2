@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+% Package utile (à charger quand vous en avez besoin) : etoolbox
+
+%%%%%%
+% Niveau intermédiaire
+%%%%%%
+
+% 1. La commande \auteur ci-dessous prend deux arguments obligatoires : le prénom, puis le nom.
+%    Modifiez-la pour que le prénom devienne un argument optionnel :
+%       \auteur[George]{Sand} -> George Sand        \auteur{Colette} -> Colette
+%    (le nom est en petites capitales)
+%    Rappel : \newcommand{\nom}[2][défaut]{code} -> le premier argument (#1) devient optionnel.
+
+% 2. Sans prénom, il reste une espace en trop devant le nom.
+%    Supprimez-la en testant si l'argument est vide : \ifblank{#1}{si vide}{sinon} (package etoolbox).
+
+\newcommand{\auteur}[2]{#1 \textsc{#2}}
+
+
+%%%%%%
+% Niveau difficile
+%%%%%%
+
+% 3. Créer l'environnement extrait (voir l'exemple dans le corps du document, à décommenter) :
+%    le texte est mis en retrait (environnement quotation),
+%    et le nom de l'auteur, donné en argument, s'affiche après la citation, aligné à droite.
+%    Avec \newenvironment, #1 est interdit dans le code de fermeture :
+%    utilisez \NewDocumentEnvironment{nom}{m}{ouverture}{fermeture}  (m = un argument obligatoire)
+
+% 4. Pour aller plus loin : créer l'environnement Extrait, à deux arguments (auteur, titre) :
+%    \begin{Extrait}{Flaubert}{L'Éducation sentimentale} -> Flaubert, L'Éducation sentimentale
+%    (le titre est en emphase)
+
+\begin{document}
+
+\section*{Niveau intermédiaire}
+
+\auteur{George}{Sand} et \auteur{}{Colette} sont deux autrices.
+% Une fois la commande modifiée, remplacez la ligne précédente par :
+% \auteur[George]{Sand} et \auteur{Colette} sont deux autrices.
+
+
+\section*{Niveau difficile}
+
+%\begin{extrait}{Flaubert}
+%	Le 15 septembre 1840, vers six heures du matin, \emph{la Ville-de-Montereau}, près de partir, fumait à gros tourbillons devant le quai Saint-Bernard.
+%
+%	Des gens arrivaient hors d'haleine ; des barriques, des câbles, des corbeilles de linge gênaient la circulation ; les matelots ne répondaient à personne ; on se heurtait ; les colis montaient entre les deux tambours, et le tapage s'absorbait dans le bruissement de la vapeur, qui, s'échappant par des plaques de tôle, enveloppait tout d'une nuée blanchâtre, tandis que la cloche, à l'avant, tintait sans discontinuer.
+%\end{extrait}
+
+\end{document}

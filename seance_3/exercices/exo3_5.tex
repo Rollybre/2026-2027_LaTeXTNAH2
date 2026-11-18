@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{tikz}% faire des schémas
+\usepackage{pgfplots}% graphiques à partir de données (courbes, histogrammes)
+\pgfplotsset{compat=1.16}
+%\pgfplotsset{/pgf/number format/1000 sep=}% pas de séparateur pour les nombres au-dessus de mille
+
+% Tracer un diagramme en saisissant les données à la main.
+% Données (Insee) : temps de travail domestique quotidien, en heures
+%
+%    Date    Hommes   Femmes
+%    1986    2.07     5.07
+%    1999    2.13     4.36
+%    2010    2.13     4.01
+
+% 1. Compilez : le graphique ne contient qu'un point (1986 ; 2.07).
+% 2. Complétez le premier \addplot avec les deux autres valeurs pour les hommes.
+%    Chaque point s'écrit (abscisse,ordonnée) ; les décimales s'écrivent avec un point.
+% 3. Ajoutez un second \addplot pour les femmes.
+% 4. Ajoutez une légende après les \addplot : \legend{Hommes,Femmes}
+% 5. Passez l'option xtick=data à l'environnement axis : \begin{axis}[xtick=data]
+%    Observez l'écriture des années, puis décommentez la ligne \pgfplotsset du préambule.
+% 6. Transformez les courbes en diagramme en barres : ajoutez l'option ybar.
+% 7. Mettez le graphique dans un flottant (figure) avec une légende (\caption).
+
+\begin{document}
+
+\section{Tracer un diagramme avec pgfplots}
+
+\begin{tikzpicture}
+	\begin{axis}
+		\addplot coordinates {(1986,2.07)};
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}

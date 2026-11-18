@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+
+\usepackage{reledmac}% faire une édition critique
+\usepackage{reledpar}% mettre deux textes en vis-à-vis
+
+%\renewcommand*{\thefootnoteB}{\alph{footnoteB}}% pour changer l'apparence de l'appel des notes de série B
+
+%%%%%%
+% Première partie : l'apparat critique (reledmac)
+%%%%%%
+
+% 1. Numérotez les lignes du texte : décommentez \beginnumbering, \autopar et \endnumbering.
+% 2. Ajoutez où vous voulez une note de série A (\footnoteA) et une note de série B (\footnoteB).
+% 3. Indiquez une variante sur le mot « Phasellus » (début du deuxième paragraphe) :
+%    \edtext{Phasellus}{\Afootnote{Un mot avec une variante}}
+
+%%%%%%
+% Seconde partie : texte et traduction en vis-à-vis (reledpar)
+%%%%%%
+
+% 4. Décommentez la (pseudo-)traduction, à la fin du fichier.
+%    Mettez le texte dans un environnement Leftside et la traduction dans un environnement Rightside
+%    (attention à la majuscule) ; mettez ces deux environnements dans un environnement pages,
+%    et ajoutez après \end{pages} la commande \Pages
+% 5. Passez des pages aux colonnes : remplacez l'environnement pages par pairs, et \Pages par \Columns
+
+\begin{document}
+
+%%% Le texte
+
+%\beginnumbering
+%\autopar
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
+Curabitur dictum gravida mauris.
+Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices.
+
+Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
+bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
+mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget
+orci sit amet orci dignissim rutrum.
+
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
+et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.
+Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis.
+
+%\endnumbering
+
+
+%%% La traduction
+
+%\beginnumbering
+%\autopar
+%
+%Traduction du premier paragraphe. Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue.
+%
+%Traduction du deuxième paragraphe. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim.
+%
+%Traduction du troisième paragraphe. Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla a faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellentesque, augue quis sagittis posuere, turpis lacus congue quam, in hendrerit risus eros eget felis.
+%
+%\endnumbering
+
+\end{document}

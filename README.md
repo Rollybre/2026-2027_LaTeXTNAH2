@@ -19,7 +19,8 @@ Un dossier par séance : les slides en PDF, et les fichiers d'exercices dans le 
 │   └── exercices/             exo2_1.tex … exo2_5.tex
 ├── seance_3/                  Les éléments non textuels
 │   ├── slides_seance_3.pdf
-│   └── exercices/             exo3_1.tex, exo3_2.tex, exo3_3.pdf, image et données (CSV, ODS)
+│   ├── exercices/             exo3_1.tex … exo3_7.tex, image et données (CSV, ODS)
+│   └── corrections/           exo3_1_correction.tex … exo3_7_correction.tex, CSV nettoyé
 ```
 
 

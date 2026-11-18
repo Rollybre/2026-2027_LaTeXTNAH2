@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{tikz}% faire des schémas
+\usepackage{pgfplots}% graphiques à partir de données (courbes, histogrammes)
+\usepackage{pgfplotstable}% importer les données depuis un fichier csv
+\pgfplotsset{compat=1.16}
+\pgfplotsset{/pgf/number format/1000 sep=}% pas de séparateur pour les nombres au-dessus de mille
+%\pgfplotsset{/pgf/number format/read comma as period}% la virgule est lue comme séparateur décimal (notation française)
+%\pgfplotstableset{%
+%	assign column name/.style={/pgfplots/table/column name={\textbf{#1}}},% le titre des colonnes apparaît en gras
+%	column type=l}% et les colonnes sont alignées à gauche
+
+% Fichiers nécessaires (dans le même dossier que ce fichier) :
+% travail_domestique_insee.csv, classement_prenoms_insee.csv, insee_categories_socio_professionnelles.ods
+
+% Dans chaque partie, décommentez le code proposé et complétez les accolades vides.
+
+\begin{document}
+
+\section{Du fichier CSV au tableau}
+
+% 1. Stockez les données de travail_domestique_insee.csv dans une variable, appelée par exemple \travail,
+%    puis affichez-les sous forme de tableau.
+
+%\pgfplotstableread[col sep=comma]{}{}
+
+%\pgfplotstabletypeset{}
+
+
+\section{Du fichier CSV au graphique}
+
+% 2. Affichez les mêmes données sous forme de diagramme : une courbe pour les hommes, une pour les femmes.
+%    Dans les crochets de \addplot table, indiquez les colonnes à utiliser : x=..., y=...
+%    Dans les accolades, indiquez la variable qui contient les données.
+
+%\begin{tikzpicture}
+%	\begin{axis}[xtick=data]
+%		\addplot table[]{};
+%		\addplot table[]{};
+%		\legend{}
+%	\end{axis}
+%\end{tikzpicture}
+
+
+\section{Des données textuelles}
+
+% 3. Importez classement_prenoms_insee.csv sous forme d'histogramme en barres.
+%    Les prénoms ne sont pas des nombres : ils servent d'étiquettes sur l'axe horizontal.
+%    - xticklabels from table={variable}{nom de la colonne des étiquettes}
+%    - dans \addplot table : x expr=\coordindex, y=nom de la colonne des valeurs
+
+%\pgfplotstableread[col sep=comma]{}{}
+
+%\begin{tikzpicture}
+%	\begin{axis}[ybar, xtick=data, xticklabels from table={}{}, x tick label style={rotate=90}]
+%		\addplot table[x expr=\coordindex, y=]{};
+%	\end{axis}
+%\end{tikzpicture}
+
+
+\section{Nettoyer ses données}
+
+% 4. Ouvrez insee_categories_socio_professionnelles.ods dans un tableur :
+%    - supprimez tout ce qui n'est pas le tableau lui-même (titre, unité, notes, source) ;
+%    - enregistrez au format CSV, avec la tabulation comme séparateur (les données contiennent des virgules).
+%    Importez ensuite le fichier sous forme de tableau.
+%    Décommentez dans le préambule la ligne « read comma as period » ;
+%    la première colonne contient du texte : il faut le préciser avec l'option string type.
+
+%\pgfplotstableread[col sep=tab]{}{}
+
+%\pgfplotstabletypeset[columns/Catégorie socioprofessionnelle/.style={string type}]{}
+
+% 5. Décommentez dans le préambule les lignes \pgfplotstableset et observez vos tableaux.
+
+\end{document}
