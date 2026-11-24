@@ -8,6 +8,7 @@
 \usepackage{graphicx}% insérer des images
 \usepackage{lscape}% mettre en format paysage
 \usepackage{hyperref}% écrire une adresse web : \url{...}
+\usepackage{subcaption}
 
 % Fichier nécessaire : genealogie.jpg (dans le même dossier que ce fichier)
 
@@ -28,17 +29,38 @@
 
 \lipsum[1]
 
-% Insérez l'image ici
+\begin{figure}[ht]
+	\centering
+	\includegraphics[ width = \textwidth]{genealogie.jpg}
+	\caption{Une légende}
+\end{figure}
 
 
 
 \lipsum[2]
 
-% Images côte à côte ici
+% Images côt
 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{genealogie.jpg}
+		\caption{Une légende}
+		\label{fig:genealogie-a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{genealogie.jpg}
+		\caption{Une autre légende}
+		\label{fig:genealogie-b}
+	\end{subfigure}
+	\caption{Encore une autre légende}
+	\label{fig:genealogie}
+\end{figure}
 
-
-\lipsum[3]
+%\lipsum[3]
 
 % Insérez la liste des figures ici
 

@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{tikz}% faire des schémas
+\usepackage{pgfplots}% graphiques à partir de données (courbes, histogrammes)
+\pgfplotsset{compat=1.16}
+% 5. Sans cette ligne, les années s'écrivent « 1,986 » (séparateur des milliers anglo-saxon).
+\pgfplotsset{/pgf/number format/1000 sep=}
+
+\begin{document}
+
+\section{Tracer un diagramme avec pgfplots}
+
+% 2. Chaque point s'écrit (abscisse,ordonnée), à la suite, sans virgule entre les points.
+%    Les décimales s'écrivent avec un point : 2.07, et non 2,07.
+% 3. Un \addplot par série de données : un pour les hommes, un pour les femmes.
+% 4. \legend : une entrée par \addplot, dans le même ordre, séparées par des virgules.
+% 5. xtick=data : seules les abscisses des données (1986, 1999, 2010) sont graduées.
+% 6. ybar : diagramme en barres verticales (les barres des deux séries se placent côte à côte).
+% 7. Le graphique est placé dans un flottant figure, avec une légende.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[ybar, xtick=data]
+			\addplot coordinates {(1986,2.07) (1999,2.13) (2010,2.13)};
+			\addplot coordinates {(1986,5.07) (1999,4.36) (2010,4.01)};
+			\legend{Hommes,Femmes}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Temps de travail domestique quotidien, en heures (Insee)}
+\end{figure}
+
+\end{document}

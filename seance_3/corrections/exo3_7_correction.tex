@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+
+\usepackage{reledmac}% faire une édition critique
+\usepackage{reledpar}% mettre deux textes en vis-à-vis
+
+% Appel des notes de série B en lettres (a, b, c...) plutôt qu'en chiffres, pour les distinguer de la série A.
+\renewcommand*{\thefootnoteB}{\alph{footnoteB}}
+
+% 1. \beginnumbering ... \endnumbering : numérotation des lignes.
+%    \autopar : chaque paragraphe est automatiquement entouré de \pstart et \pend.
+% 2. \footnoteA et \footnoteB : notes « familières », avec appel de note, chaque série dans son propre bloc.
+% 3. \edtext{lemme}{\Afootnote{note}} : note critique, sans appel ; en bas de page figurent
+%    le numéro de ligne, le lemme suivi d'un crochet, puis la variante.
+% 4. Vis-à-vis : texte dans Leftside, traduction dans Rightside, le tout dans pages, puis \Pages.
+%    Chaque côté a sa propre numérotation (\beginnumbering ... \endnumbering).
+%    Les paragraphes se correspondent un à un : il en faut le même nombre des deux côtés.
+% 5. En colonnes : pairs au lieu de pages, \Columns au lieu de \Pages.
+%    Version en pages, à essayer : remplacer pairs par pages et \Columns par \Pages
+%    (la classe book est alors préférable, pour avoir des pages paires et impaires en vis-à-vis).
+
+\begin{document}
+
+\begin{pairs}
+
+\begin{Leftside}
+\beginnumbering
+\autopar
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.\footnoteA{Une note de série A.}
+Curabitur dictum gravida mauris.
+Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
+Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices.\footnoteB{Une note de série B.}
+
+\edtext{Phasellus}{\Afootnote{Un mot avec une variante}} eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
+bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
+mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci eget risus.
+Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget
+orci sit amet orci dignissim rutrum.
+
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
+et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.
+Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis.
+
+\endnumbering
+\end{Leftside}
+
+\begin{Rightside}
+\beginnumbering
+\autopar
+
+Traduction du premier paragraphe. Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue.
+
+Traduction du deuxième paragraphe. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim.
+
+Traduction du troisième paragraphe. Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla a faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellentesque, augue quis sagittis posuere, turpis lacus congue quam, in hendrerit risus eros eget felis.
+
+\endnumbering
+\end{Rightside}
+
+\end{pairs}
+\Columns
+
+\end{document}

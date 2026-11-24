@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{tikz}% faire des schémas
+
+\begin{document}
+
+\section{Un \emph{stemma codicum}}
+
+% Chaque child {node {...}} est un enfant du nœud qui le précède.
+% 2. D est un troisième enfant de A : on ajoute un child au même niveau que B et C.
+% 3. E est un enfant de D : on place un child à l'intérieur des accolades de D.
+% L'arbre entier est une seule instruction : un seul point-virgule, tout à la fin.
+% 4. Le tikzpicture est placé dans un flottant figure, centré, avec une légende.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\node {A}
+			child {node {B}}
+			child {node {C}}
+			child {node {D}
+				child {node {E}}
+			}
+		;
+	\end{tikzpicture}
+	\caption{Un \emph{stemma codicum}}
+\end{figure}
+
+\end{document}

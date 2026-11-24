@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+\usepackage{lipsum}
+\usepackage{array}% nécessaire pour les colonnes de largeur fixée avec alignement : >{...}p{...}
+
+\begin{document}
+
+\section{Insérer un tableau}
+
+\lipsum[1]
+
+% 1-2. Le code produit par l'assistant de TeXstudio :
+%    - {|l|c|r|} : trois colonnes (gauche, centre, droite), séparées par des traits verticaux ;
+%    - & : passage à la colonne suivante ; \\ : fin de ligne ; \hline : trait horizontal ;
+%    - \multicolumn{2}{|c|}{texte} : fusionne deux colonnes, centrées, avec un trait de chaque côté.
+%    Ajouter une ligne : recopier une ligne existante (même nombre de &), suivie de \hline.
+% 4. Environnement table : le tableau devient un flottant, avec une légende (\caption).
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|c|r|}
+		\hline
+		\multicolumn{2}{|c|}{Lieu et date} & Événement \\
+		\hline
+		Paris & 1789 & Prise de la Bastille \\
+		\hline
+		Varennes & 1791 & Arrestation du roi \\
+		\hline
+		Valmy & 1792 & Victoire française \\% ligne ajoutée à la main
+		\hline
+	\end{tabular}
+	\caption{Quelques événements de la Révolution}
+\end{table}
+
+\lipsum[2]
+
+% 3. Colonne de largeur fixée : p{4cm} (le texte revient à la ligne dans la colonne).
+%    L'assistant ajoute >{\raggedright\arraybackslash} pour aligner ce texte à gauche (package array).
+%    Pour modifier la largeur, il suffit de changer la valeur : p{4cm} -> p{6cm}.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|c|>{\raggedright\arraybackslash}p{6cm}|}
+		\hline
+		Date & Événement \\
+		\hline
+		1789 & Prise de la Bastille, le 14 juillet, après l'émeute du faubourg Saint-Antoine \\
+		\hline
+		1792 & Proclamation de la République, le 21 septembre \\
+		\hline
+	\end{tabular}
+	\caption{Un tableau avec une colonne de largeur fixée}
+\end{table}
+
+% 5. Liste des tableaux (deux compilations sont nécessaires).
+\listoftables
+
+\end{document}

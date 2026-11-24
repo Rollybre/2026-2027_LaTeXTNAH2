@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{etoolbox}% pour \ifblank
+
+%%%%%%
+% Niveau intermédiaire
+%%%%%%
+
+% 1. [2][] : la commande a deux arguments, et le premier (#1) est optionnel.
+%    Entre les seconds crochets, la valeur par défaut de #1 : ici, rien.
+%    \auteur[George]{Sand} -> #1 = George, #2 = Sand
+%    \auteur{Colette}      -> #1 = (vide), #2 = Colette
+
+% 2. Sans test, \auteur{Colette} donne « ␣Colette » : l'espace qui suit #1 est toujours écrite.
+%    \ifblank{#1}{si vide}{sinon} : si #1 est vide, on n'écrit rien ; sinon, on écrit le prénom suivi d'une espace.
+
+\newcommand{\auteur}[2][]{\ifblank{#1}{}{#1 }\textsc{#2}}
+
+%%%%%%
+% Niveau difficile
+%%%%%%
+
+% 3. Avec \newenvironment, #1 ne peut pas être appelé dans le code de fermeture
+%    (erreur « Illegal parameter number »). \NewDocumentEnvironment le permet.
+%    {m} : un argument obligatoire (m = mandatory).
+%    Ouverture : on ouvre quotation.
+%    Fermeture : nouveau paragraphe (\par), nom de l'auteur aligné à droite, puis on ferme quotation.
+%    Les environnements sont refermés dans l'ordre inverse de leur ouverture.
+
+\NewDocumentEnvironment{extrait}{m}
+	{\begin{quotation}}
+	{\par\begin{flushright}#1\end{flushright}\end{quotation}}
+
+% 4. {mm} : deux arguments obligatoires, #1 (auteur) et #2 (titre).
+
+\NewDocumentEnvironment{Extrait}{mm}
+	{\begin{quotation}}
+	{\par\begin{flushright}#1, \emph{#2}\end{flushright}\end{quotation}}
+
+\begin{document}
+
+\section*{Niveau intermédiaire}
+
+\auteur[George]{Sand} et \auteur{Colette} sont deux autrices.
+
+
+\section*{Niveau difficile}
+
+\begin{extrait}{Flaubert}
+	Le 15 septembre 1840, vers six heures du matin, \emph{la Ville-de-Montereau}, près de partir, fumait à gros tourbillons devant le quai Saint-Bernard.
+
+	Des gens arrivaient hors d'haleine ; des barriques, des câbles, des corbeilles de linge gênaient la circulation ; les matelots ne répondaient à personne ; on se heurtait ; les colis montaient entre les deux tambours, et le tapage s'absorbait dans le bruissement de la vapeur, qui, s'échappant par des plaques de tôle, enveloppait tout d'une nuée blanchâtre, tandis que la cloche, à l'avant, tintait sans discontinuer.
+\end{extrait}
+
+
+\section*{Pour aller plus loin}
+
+\begin{Extrait}{Flaubert}{L'Éducation sentimentale}
+	Le 15 septembre 1840, vers six heures du matin, \emph{la Ville-de-Montereau}, près de partir, fumait à gros tourbillons devant le quai Saint-Bernard.
+\end{Extrait}
+
+\end{document}

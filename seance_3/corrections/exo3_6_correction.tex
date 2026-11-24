@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{csquotes}
+
+\usepackage{tikz}% faire des schémas
+\usepackage{pgfplots}% graphiques à partir de données (courbes, histogrammes)
+\usepackage{pgfplotstable}% importer les données depuis un fichier csv
+\pgfplotsset{compat=1.16}
+\pgfplotsset{/pgf/number format/1000 sep=}% pas de séparateur pour les nombres au-dessus de mille
+% 4. Le fichier de l'Insee utilise la virgule décimale (0,9) : elle doit être lue comme un point.
+\pgfplotsset{/pgf/number format/read comma as period}
+% 5. Réglage de tous les tableaux importés : titres de colonnes en gras, colonnes alignées à gauche.
+\pgfplotstableset{%
+	assign column name/.style={/pgfplots/table/column name={\textbf{#1}}},
+	column type=l}
+
+% Les fichiers de données sont dans le dossier exercices : d'où le chemin ../exercices/
+% Le fichier nettoyé (question 4) est dans le dossier corrections.
+
+\begin{document}
+
+\section{Du fichier CSV au tableau}
+
+% 1. \pgfplotstableread lit le fichier et stocke les données dans la variable \travail.
+%    col sep=comma : les colonnes sont séparées par des virgules.
+%    Attention : ne pas appeler la variable \table, nom déjà utilisé par l'environnement table.
+%    \pgfplotstabletypeset affiche le contenu de la variable sous forme de tableau.
+
+\pgfplotstableread[col sep=comma]{../exercices/travail_domestique_insee.csv}{\travail}
+
+\pgfplotstabletypeset{\travail}
+
+
+\section{Du fichier CSV au graphique}
+
+% 2. Les mêmes données, sans rien recopier : \addplot table lit la variable.
+%    x= et y= : noms des colonnes, tels qu'ils figurent dans la première ligne du fichier.
+
+\begin{tikzpicture}
+	\begin{axis}[xtick=data]
+		\addplot table[x=Date, y=Hommes]{\travail};
+		\addplot table[x=Date, y=Femmes]{\travail};
+		\legend{Hommes,Femmes}
+	\end{axis}
+\end{tikzpicture}
+
+
+\section{Des données textuelles}
+
+% 3. Les prénoms ne sont pas des nombres : ils ne peuvent pas servir d'abscisse.
+%    - x expr=\coordindex : l'abscisse est le numéro de la ligne (0, 1, 2...) ;
+%    - xticklabels from table={\prenoms}{Prénom} : les étiquettes de l'axe sont lues dans la colonne Prénom ;
+%    - x tick label style={rotate=90} : les étiquettes sont écrites verticalement.
+
+\pgfplotstableread[col sep=comma]{../exercices/classement_prenoms_insee.csv}{\prenoms}
+
+\begin{tikzpicture}
+	\begin{axis}[ybar, xtick=data, xticklabels from table={\prenoms}{Prénom}, x tick label style={rotate=90}]
+		\addplot table[x expr=\coordindex, y=Nombre]{\prenoms};
+	\end{axis}
+\end{tikzpicture}
+
+
+\section{Nettoyer ses données}
+
+% 4. Nettoyage dans le tableur (fichier insee_categories_socio_professionnelles.csv, dossier corrections) :
+%    - suppression du titre, de l'unité (« en % »), des notes, de la source et des lignes vides ;
+%    - suppression de l'appel de note dans « Employés1 » ;
+%    - suppression des sous-catégories (« Employés qualifiés »...), déjà comptées dans « Employés » et « Ouvriers » ;
+%    - enregistrement en CSV avec la tabulation comme séparateur,
+%      car « Artisans, commerçants, chefs d'entreprise » contient des virgules.
+%    La première colonne contient du texte : on le signale avec string type.
+
+\pgfplotstableread[col sep=tab]{insee_categories_socio_professionnelles.csv}{\csp}
+
+\pgfplotstabletypeset[columns/Catégorie socioprofessionnelle/.style={string type}]{\csp}
+
+\end{document}
